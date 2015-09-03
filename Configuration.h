@@ -2,9 +2,10 @@
 #define CONFIGURATION_H
 
 
-//#define DUAL_EXTRUDER
+#define DUAL_EXTRUDER
+//#define BIO_EXTRUDER
 
-#define BIO_EXTRUDER
+
 
 // This configuration file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h
@@ -36,7 +37,7 @@
 #define SERIAL_PORT 0
 
 // This determines the communication speed of the printer
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 // This enables the serial port associated to the Bluetooth interface
 //#define BTENABLED              // Enable BT interface on AT90USB devices
@@ -147,10 +148,10 @@
 // 147 is Pt100 with 4k7 pullup
 // 110 is Pt100 with 1k pullup (non standard)
 
-#define TEMP_SENSOR_0 11
-#define TEMP_SENSOR_1 11
+#define TEMP_SENSOR_0 8
+#define TEMP_SENSOR_1 8
 #define TEMP_SENSOR_2 0
-#define TEMP_SENSOR_BED 11
+#define TEMP_SENSOR_BED 8
 
 // This makes temp sensor 1 a redundant sensor for sensor 0. If the temperatures difference between these sensors is to high the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
@@ -507,24 +508,22 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
 #define HOMING_FEEDRATE {50*60, 50*60, 1*30, 0}  // set the homing speeds (mm/min)
 
-// default settings
 
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 4000, 800}  // default steps per unit for Ultimaker
+
 
 #ifdef DUAL_EXTRUDER
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 4000, 89}  // STEPS PARA BOWNDEN 1.75
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   {160, 160, 4000, 180}  // STEPS PARA BOWNDEN 1.75
 
 #else
 
 #ifdef BIO_EXTRUDER
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 4000, 1000}  // default steps per unit for Ultimaker
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   {160, 160, 4000, 1000}  // default steps per unit for Ultimaker
 
 #else
 
-//  #define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 4000, 640}  // STEPS PARA BOWDEN 3mm
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 4000, 152}  // default steps per unit for Ultimaker
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   {160, 160, 4000, 152}  // default steps per unit for Ultimaker
 
 #endif
 
@@ -543,9 +542,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define EXTRUDER_OFFSET_Y {0.0, 0.0}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                20.0    // (mm/sec)
+#define DEFAULT_XYJERK                10.0    // (mm/sec)
 #define DEFAULT_ZJERK                 0.1     // (mm/sec)
-#define DEFAULT_EJERK                 5.0    // (mm/sec)
+#define DEFAULT_EJERK                 4.0    // (mm/sec)
 
 //===========================================================================
 //=============================Additional Features===========================
