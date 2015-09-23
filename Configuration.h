@@ -2,8 +2,8 @@
 #define CONFIGURATION_H
 
 
-#define DUAL_EXTRUDER
-//#define BIO_EXTRUDER
+//#define DUAL_EXTRUDER
+#define BIO_EXTRUDER
 
 
 
